@@ -1,0 +1,59 @@
+## Use 020_ex5version.R, .PBS, and .bashrc to simulate 1000 steps ahead multiple times on multiple cores (not technically parallel because doesn't run everything at exactly the same time)  
+
+
+## Before running anything (including ex5version) in ACI-B, run this in the terminal:
+
+ssh exe43@aci-b.aci.ics.psu.edu
+
+mkdir -p /storage/work/exe43/R_lib
+module load gcc/5.3.1 openmpi
+R
+
+install.packages("Rcpp",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(Rcpp, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("pracma",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(pracma, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("dplyr",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(dplyr, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("tictoc",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(tictoc, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("tibble",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(tibble, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("caret",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(caret, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("raster",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(raster, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("splancs",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(splancs, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("Matrix",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(Matrix, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("mgcv",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(mgcv, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("fields",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(fields, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("ctmcmove",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+**library(ctmcmove, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("ggthemes",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(ggthemes, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("foreign",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(foreign, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("nnet",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(nnet, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("reshape2",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(reshape2, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("inline",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(inline, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("RcppArmadillo",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(RcppArmadillo, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("magrittr",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(magrittr, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("snow",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(snow, lib.loc="/storage/work/exe43/R_lib/")
+install.packages("snowfall",lib="/storage/work/exe43/R_lib/",dependencies = TRUE)
+library(snowfall, lib.loc="/storage/work/exe43/R_lib/")
+
+
+Then run the bash script:
+bash 020_ex5version.bashrc
+OR (if doing exercise 4 version)
+qsub 020_ex4version.PBS
