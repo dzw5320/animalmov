@@ -8,6 +8,8 @@ Includes code used to generate results in Machine Learning for Animal Movement.
 
 4. Generate Metrics: This folder gives code for generating metrics on the 1000 steps ahead simulation for each model. It also gives code for plotting results using ggplot2 in R.
 
+5. Gulls folder gives code for the analysis of the Gulls migratory data.
+
 
 
 
